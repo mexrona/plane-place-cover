@@ -137,7 +137,7 @@ export const useDesignStore = create<DesignState>((set, get) => ({
   },
 
   exportDesign: (client) => ({
-    catalogHint: "MVP стеллажи: секции + полки",
+    catalogHint: "Модульные стеллажи: секции и полки",
     createdAt: new Date().toISOString(),
     client,
     sections: get().sections.map((s) => ({ ...s, shelves: s.shelves.map((x) => ({ ...x })) })),

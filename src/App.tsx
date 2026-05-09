@@ -48,7 +48,7 @@ export function App() {
 
   const handleGlReady = useCallback((gl: WebGLRenderer, scene: Scene, camera: Camera) => {
     (gl as WebGLRendererWithCapture).userData = { scene, camera };
-    (window as Window & { __mvpGl?: WebGLRenderer }).__mvpGl = gl;
+    (window as Window & { __rackCaptureGl?: WebGLRenderer }).__rackCaptureGl = gl;
   }, []);
 
   const handlePickSection = useCallback((id: string) => {
@@ -66,7 +66,7 @@ export function App() {
   };
 
   const handleCapture = () => {
-    const gl = (window as Window & { __mvpGl?: WebGLRenderer }).__mvpGl as WebGLRendererWithCapture | undefined;
+    const gl = (window as Window & { __rackCaptureGl?: WebGLRenderer }).__rackCaptureGl as WebGLRendererWithCapture | undefined;
     if (!gl?.userData?.scene || !gl.userData?.camera) return;
     const ud = gl.userData;
     const save = () => {
@@ -92,7 +92,7 @@ export function App() {
       <header className="top-bar">
         <div className="brand">
           <strong>Стеллаж</strong>
-          <span className="muted">конструктор MVP</span>
+          <span className="muted">3D-конструктор</span>
         </div>
         <div className="actions">
           <button type="button" className="ghost" onClick={() => reset()}>

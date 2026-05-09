@@ -29,7 +29,7 @@ export function SubmitModal({ open, onClose, onSubmit }: Props) {
       <div className="modal" role="dialog" aria-modal onMouseDown={(ev) => ev.stopPropagation()}>
         <h2>Отправить на расчёт</h2>
         <p className="muted small">
-          Демо-MVP: данные не уходят на сервер — скачиваются JSON и изображение. В проде сюда подключается API.
+          На ваше устройство будут сохранены файл с параметрами заказа и снимок 3D-сцены.
         </p>
         <form onSubmit={handle}>
           <label>

@@ -144,7 +144,7 @@ export function RackThreeView({
     ctxRef.current = ctx;
 
     glReadyRef.current?.(renderer, scene, camera);
-    (window as Window & { __mvpGl?: WebGLRenderer }).__mvpGl = renderer;
+    (window as Window & { __rackCaptureGl?: WebGLRenderer }).__rackCaptureGl = renderer;
 
     let alive = true;
     const loop = () => {
@@ -192,8 +192,8 @@ export function RackThreeView({
       controls.dispose();
       renderer.dispose();
       if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
-      if ((window as Window & { __mvpGl?: WebGLRenderer }).__mvpGl === renderer) {
-        delete (window as Window & { __mvpGl?: WebGLRenderer }).__mvpGl;
+      if ((window as Window & { __rackCaptureGl?: WebGLRenderer }).__rackCaptureGl === renderer) {
+        delete (window as Window & { __rackCaptureGl?: WebGLRenderer }).__rackCaptureGl;
       }
       ctxRef.current = null;
     };
